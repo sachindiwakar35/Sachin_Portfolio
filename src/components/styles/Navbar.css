@@ -1,0 +1,425 @@
+/* navbar.css - Elegant Neutral Theme - Sachin4 Portfolio */
+:root {
+  /* Your Color Theme */
+  --bg-primary: #FFFFFF;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #78716C;
+  --accent: #44403C;
+  --border-color: #E7E5E4;
+  
+  /* Derived Colors */
+  --gradient-start: #44403C;
+  --gradient-end: #78716C;
+  --bg-card: #FAFAF9;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.05);
+  --transition-smooth: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* Navbar Base - Refined */
+.sachin4-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: var(--transition-smooth);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px) saturate(150%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sachin4-navbar-scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px) saturate(150%);
+  box-shadow: var(--shadow-sm);
+  border-bottom-color: var(--border-color);
+}
+
+.sachin4-navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 14px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo - Clean & Elegant */
+.sachin4-navbar-logo {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 1.35rem;
+  margin: 0;
+  cursor: pointer;
+  color: var(--text-primary);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.sachin4-navbar-logo::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.sachin4-navbar-logo:hover {
+  transform: none;
+}
+
+.sachin4-navbar-logo:hover::after {
+  width: 100%;
+}
+
+/* Navigation Links */
+.sachin4-navbar-links {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+.sachin4-nav-link-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding: 8px 0;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.sachin4-nav-link-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.sachin4-nav-link-btn:hover::before,
+.sachin4-nav-link-btn.active::before {
+  width: 100%;
+}
+
+.sachin4-nav-link-btn:hover {
+  color: var(--text-primary);
+}
+
+.sachin4-nav-link-btn.active {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Right Side Actions */
+.sachin4-navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Theme Toggle Button - Refined */
+.sachin4-theme-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  width: 38px;
+  height: 38px;
+}
+
+.sachin4-theme-btn:hover {
+  background: var(--bg-primary);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  color: var(--accent);
+}
+
+/* CTA Button - Minimal */
+.sachin4-cta-btn {
+  padding: 8px 22px;
+  border-radius: 40px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sachin4-cta-btn:hover {
+  transform: translateY(-2px);
+  background: #3A3632;
+  box-shadow: 0 6px 16px rgba(68, 64, 60, 0.15);
+}
+
+.sachin4-cta-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile Menu Button */
+.sachin4-mobile-menu-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 6px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--text-primary);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  width: 40px;
+  height: 40px;
+}
+
+.sachin4-mobile-menu-btn:hover {
+  background: var(--bg-primary);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Mobile Menu Panel - Refined */
+.sachin4-mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px) saturate(150%);
+  transition: right 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  z-index: 999;
+  overflow-y: auto;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.04);
+}
+
+.sachin4-mobile-menu-open {
+  right: 0;
+}
+
+.sachin4-mobile-menu-container {
+  padding: 100px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sachin4-mobile-link {
+  padding: 14px 20px;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border-radius: 16px;
+  position: relative;
+}
+
+.sachin4-mobile-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transform: translateX(6px);
+}
+
+.sachin4-mobile-link.active {
+  color: var(--text-primary);
+  background: var(--bg-card);
+  font-weight: 500;
+}
+
+/* Mobile Menu Close Indicator */
+.sachin4-mobile-menu-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: 1px solid var(--border-color);
+}
+
+.sachin4-mobile-menu-close:hover {
+  transform: rotate(90deg);
+  border-color: var(--accent);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .sachin4-navbar-container {
+    padding: 12px 24px;
+  }
+  
+  .sachin4-navbar-logo {
+    font-size: 1.2rem;
+  }
+  
+  .sachin4-navbar-links {
+    display: none;
+  }
+  
+  .sachin4-mobile-menu-btn {
+    display: flex;
+  }
+  
+  .sachin4-cta-btn span {
+    display: none;
+  }
+  
+  .sachin4-cta-btn {
+    padding: 8px;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+  
+  .sachin4-theme-btn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (min-width: 769px) {
+  .sachin4-mobile-menu {
+    display: none;
+  }
+}
+
+/* Slide-in Animation for Mobile Links */
+@keyframes sachin4-slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sachin4-mobile-menu-open .sachin4-mobile-link {
+  animation: sachin4-slideIn 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+  opacity: 0;
+}
+
+.sachin4-mobile-menu-open .sachin4-mobile-link:nth-child(1) { animation-delay: 0.04s; }
+.sachin4-mobile-menu-open .sachin4-mobile-link:nth-child(2) { animation-delay: 0.08s; }
+.sachin4-mobile-menu-open .sachin4-mobile-link:nth-child(3) { animation-delay: 0.12s; }
+.sachin4-mobile-menu-open .sachin4-mobile-link:nth-child(4) { animation-delay: 0.16s; }
+
+/* Utility Styles */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom Scrollbar */
+.sachin4-mobile-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sachin4-mobile-menu::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.sachin4-mobile-menu::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.sachin4-mobile-menu::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Extra Small Phones */
+@media (max-width: 480px){
+
+  .sachin4-navbar-container{
+    padding:10px 14px;
+    gap:10px;
+  }
+
+  .sachin4-navbar-logo{
+    font-size:0.95rem;
+    max-width:160px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .sachin4-navbar-right{
+    gap:8px;
+  }
+
+  .sachin4-theme-btn,
+  .sachin4-mobile-menu-btn{
+    width:36px;
+    height:36px;
+    padding:6px;
+  }
+
+  .sachin4-mobile-menu{
+    max-width:100%;
+  }
+
+  .sachin4-mobile-menu-container{
+    padding:90px 18px 30px;
+  }
+
+  .sachin4-mobile-link{
+    font-size:1rem;
+    padding:13px 16px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px){
+
+  .sachin4-navbar-container{
+    padding:14px 24px;
+  }
+
+  .sachin4-navbar-links{
+    gap:22px;
+  }
+
+  .sachin4-navbar-logo{
+    font-size:1.2rem;
+  }
+}

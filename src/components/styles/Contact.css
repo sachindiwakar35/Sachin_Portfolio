@@ -1,0 +1,619 @@
+/* contact.css - Elegant Neutral Theme - Sachin2 Portfolio */
+:root {
+  /* Your Color Theme */
+  --bg-primary: #FFFFFF;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #78716C;
+  --accent: #44403C;
+  --border-color: #E7E5E4;
+  
+  /* Derived Colors */
+  --gradient-start: #44403C;
+  --gradient-end: #78716C;
+  --blob-opacity: 0.12;
+  --bg-card: #FAFAF9;
+  --bg-card-solid: #FAFAF9;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.06);
+  --transition-smooth: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.page-section {
+  opacity: 0;
+}
+
+.sachin2-contact {
+  padding: 100px 24px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-primary);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Refined Blob Effects - More Subtle */
+.sachin2-contact-bg-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+  animation: sachin2-floatBlob 16s ease-in-out infinite;
+}
+
+.sachin2-contact-bg-blob-1 {
+  background: var(--gradient-start);
+  top: -200px;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.sachin2-contact-bg-blob-2 {
+  background: var(--gradient-end);
+  bottom: -200px;
+  right: -200px;
+  animation-delay: -6s;
+}
+
+@keyframes sachin2-floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -20px) scale(1.05); }
+  66% { transform: translate(-10px, 15px) scale(0.98); }
+}
+
+.sachin2-contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Card Styling - Clean & Elegant */
+.sachin2-glass-card {
+  background: var(--bg-card);
+  border-radius: 28px;
+  border: 1px solid var(--border-color);
+  padding: 36px;
+  transition: var(--transition-smooth);
+  backdrop-filter: none;
+}
+
+.sachin2-glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-color);
+}
+
+/* Form Header */
+.sachin2-form-header {
+  margin-bottom: 32px;
+}
+
+.sachin2-form-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  background: none;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  color: unset;
+  margin-bottom: 10px;
+}
+
+.sachin2-form-header p {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Input Groups - Refined */
+.sachin2-input-group {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.sachin2-input-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+}
+
+.sachin2-textarea-group .sachin2-input-icon {
+  top: 22px;
+  transform: none;
+}
+
+.sachin2-input-group input,
+.sachin2-input-group textarea {
+  width:100%;
+  box-sizing:border-box;
+  padding: 16px 18px 16px 48px;
+  background: var(--bg-primary);
+  border: 1.5px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.sachin2-input-group textarea {
+  padding-top: 22px;
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Floating Labels - Clean */
+.sachin2-input-group label {
+  position: absolute;
+  left: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: transparent;
+  padding: 0 4px;
+  font-size: 0.95rem;
+}
+
+.sachin2-textarea-group label {
+  top: 22px;
+  transform: none;
+}
+
+.sachin2-input-group input:focus ~ label,
+.sachin2-input-group input:not(:placeholder-shown) ~ label,
+.sachin2-input-group textarea:focus ~ label,
+.sachin2-input-group textarea:not(:placeholder-shown) ~ label {
+  top: -11px;
+  left: 14px;
+  font-size: 0.7rem;
+  color: var(--accent);
+  background: var(--bg-primary);
+  padding: 0 8px;
+  border-radius: 20px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.sachin2-input-group input:focus,
+.sachin2-input-group textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(68, 64, 60, 0.08);
+  background: var(--bg-primary);
+}
+
+/* Error States */
+.sachin2-input-group input.sachin2-error,
+.sachin2-input-group textarea.sachin2-error {
+  border-color: #E5A0A0;
+}
+
+.sachin2-input-group input.sachin2-error:focus,
+.sachin2-input-group textarea.sachin2-error:focus {
+  box-shadow: 0 0 0 3px rgba(229, 160, 160, 0.12);
+}
+
+.sachin2-error-message {
+  position: absolute;
+  bottom: -22px;
+  left: 14px;
+  font-size: 0.7rem;
+  color: #C97373;
+  font-weight: 450;
+}
+
+.sachin2-char-counter {
+  position: absolute;
+  bottom: -22px;
+  right: 14px;
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+.sachin2-char-counter .sachin2-limit-warning {
+  color: #C9A03D;
+}
+
+.sachin2-char-counter .sachin2-limit-error {
+  color: #C97373;
+}
+
+/* Submit Button - Minimal & Elegant */
+.sachin2-submit-btn {
+  width: 100%;
+  padding: 15px 28px;
+  background: var(--accent);
+  border: none;
+  border-radius: 44px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.sachin2-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transition: left 0.5s ease;
+}
+
+.sachin2-submit-btn:hover::before {
+  left: 100%;
+}
+
+.sachin2-submit-btn:hover {
+  transform: translateY(-2px);
+  background: #3A3632;
+  box-shadow: 0 8px 20px rgba(68, 64, 60, 0.15);
+}
+
+.sachin2-submit-btn.sachin2-loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sachin2-submit-btn.sachin2-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sachin2-btn-icon {
+  transition: transform 0.2s ease;
+  width: 18px;
+  height: 18px;
+}
+
+.sachin2-submit-btn:hover .sachin2-btn-icon {
+  transform: translateX(4px);
+}
+
+/* Loader */
+.sachin2-loader {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: sachin2-spin 0.8s linear infinite;
+}
+
+@keyframes sachin2-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Success State */
+.sachin2-success-box {
+  text-align: center;
+  padding: 20px 0;
+  animation: sachin2-fadeInUp 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+@keyframes sachin2-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sachin2-success-icon {
+  width: 72px;
+  height: 72px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  animation: sachin2-scaleCheck 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes sachin2-scaleCheck {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.sachin2-success-icon svg {
+  color: white;
+  width: 32px;
+  height: 32px;
+}
+
+.sachin2-success-box h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: var(--text-primary);
+}
+
+.sachin2-success-box p {
+  color: var(--text-tertiary);
+  margin-bottom: 28px;
+}
+
+.sachin2-success-btn {
+  background: transparent;
+  border: 1.5px solid var(--border-color);
+  padding: 10px 28px;
+  border-radius: 44px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.sachin2-success-btn:hover {
+  background: var(--bg-card);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  color: var(--accent);
+}
+
+/* Contact Info Side */
+.sachin2-contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Availability Badge - Refined */
+.sachin2-availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  padding: 6px 16px;
+  border-radius: 40px;
+  width: fit-content;
+  margin-bottom: 28px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  backdrop-filter: none;
+}
+
+.sachin2-status-dot {
+  width: 8px;
+  height: 8px;
+  background: #52BE80;
+  border-radius: 50%;
+  animation: sachin2-pulse 2s infinite;
+}
+
+@keyframes sachin2-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.15); }
+}
+
+.sachin2-contact-info h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  color: var(--text-primary);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: var(--text-primary);
+}
+
+.sachin2-contact-info p {
+  color: var(--text-tertiary);
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+
+/* Stats Section */
+.sachin2-info-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sachin2-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.sachin2-stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.sachin2-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Contact Links */
+.sachin2-contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.sachin2-social-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  background: var(--bg-primary);
+  border-radius: 20px;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  border: 1.5px solid var(--border-color);
+}
+
+.sachin2-social-link .sachin2-link-arrow {
+  margin-left: auto;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all 0.25s ease;
+  width: 16px;
+  height: 16px;
+}
+
+.sachin2-social-link:hover {
+  background: var(--bg-card);
+  transform: translateX(5px);
+  border-color: var(--accent);
+}
+
+.sachin2-social-link:hover .sachin2-link-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Footer Text */
+.sachin2-contact-footer {
+  margin-top: auto;
+  padding-top: 28px;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  letter-spacing: 0.3px;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .sachin2-contact-container {
+    gap: 35px;
+  }
+  
+  .sachin2-glass-card {
+    padding: 30px;
+  }
+  
+  .sachin2-contact-info h2 {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sachin2-contact {
+    padding: 70px 20px;
+  }
+  
+  .sachin2-contact-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .sachin2-glass-card {
+    padding: 28px;
+  }
+  
+  .sachin2-contact-info h2 {
+    font-size: 1.7rem;
+  }
+  
+  .sachin2-info-stats {
+    justify-content: flex-start;
+    gap: 32px;
+  }
+  
+  .sachin2-submit-btn {
+    padding: 13px 24px;
+  }
+  
+  .sachin2-input-group input,
+  .sachin2-input-group textarea {
+    padding: 14px 16px 14px 44px;
+  }
+  
+  .sachin2-input-group label {
+    left: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sachin2-contact {
+    padding: 60px 16px;
+  }
+  
+  .sachin2-glass-card {
+    padding: 22px;
+  }
+  
+  .sachin2-form-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .sachin2-info-stats {
+    gap: 24px;
+  }
+  
+  .sachin2-stat-number {
+    font-size: 1.6rem;
+  }
+  
+  .sachin2-stat-label {
+    font-size: 0.7rem;
+  }
+  
+  .sachin2-social-link {
+    padding: 12px 16px;
+  }
+  
+  .sachin2-success-box h3 {
+    font-size: 1.4rem;
+  }
+  
+  .sachin2-contact-info h2 {
+    font-size: 1.5rem;
+  }
+}

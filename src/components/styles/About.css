@@ -1,0 +1,829 @@
+/* About.css - Elegant Neutral Theme - Sachin1 Portfolio */
+:root {
+  /* Your Color Theme */
+  --bg-primary: #FFFFFF;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #78716C;
+  --accent: #44403C;
+  --border-color: #E7E5E4;
+  
+  /* Derived Colors */
+  --gradient-start: #44403C;
+  --gradient-end: #78716C;
+  --blob-opacity: 0.12;
+  --bg-card: #FAFAF9;
+  --bg-card-solid: #FAFAF9;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.06);
+  --transition-smooth: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.page-section {
+  opacity: 0;
+}
+
+.sachin1-about-section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Refined Blob Effects */
+.sachin1-about-bg-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+  animation: sachin1-about-floatBlob 16s ease-in-out infinite;
+}
+
+.sachin1-about-bg-blob-1 {
+  background: var(--gradient-start);
+  top: -200px;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.sachin1-about-bg-blob-2 {
+  background: var(--gradient-end);
+  bottom: -200px;
+  right: -200px;
+  animation-delay: -6s;
+}
+
+@keyframes sachin1-about-floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -20px) scale(1.05); }
+  66% { transform: translate(-10px, 15px) scale(0.98); }
+}
+
+.sachin1-about-container {
+  max-width: 1300px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.8fr 1.4fr;
+  gap: 3.5rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+/* Left Column - Profile Card */
+.sachin1-about-image-col {
+  position: relative;
+}
+
+.sachin1-image-sticky-wrapper {
+  position: sticky;
+  top: 6rem;
+}
+
+/* Profile Card - Elegant & Minimal */
+.sachin1-about-profile-card {
+  background: var(--bg-card);
+  border-radius: 32px;
+  padding: 1.75rem;
+  border: 1px solid var(--border-color);
+  transition: var(--transition-smooth);
+}
+
+.sachin1-about-profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.sachin1-about-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 28px;
+  margin-bottom: 1.5rem;
+}
+
+/* Subtle border instead of gradient mask */
+.sachin1-about-image-border {
+  position: absolute;
+  inset: -2px;
+  border-radius: 30px;
+  background: var(--border-color);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sachin1-about-image-wrapper:hover .sachin1-about-image-border {
+  opacity: 1;
+}
+
+.sachin1-about-profile-image-main {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
+.sachin1-about-hero-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  background: var(--bg-card-solid);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--text-tertiary);
+  border: 1px dashed var(--border-color);
+}
+
+/* Profile Info - Clean Typography */
+.sachin1-about-profile-info-card {
+  text-align: center;
+}
+
+.sachin1-about-profile-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  margin-bottom: 0.5rem;
+}
+
+.sachin1-about-profile-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  letter-spacing: 0.3px;
+}
+
+.sachin1-about-profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.sachin1-about-profile-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.sachin1-about-profile-detail-item svg {
+  color: var(--accent);
+  opacity: 0.7;
+  width: 16px;
+  height: 16px;
+}
+
+/* Availability Badge - Refined */
+.sachin1-about-availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--bg-primary);
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.sachin1-about-status-dot {
+  width: 8px;
+  height: 8px;
+  background: #52BE80;
+  border-radius: 50%;
+  animation: sachin1-about-pulse 2s infinite;
+}
+
+@keyframes sachin1-about-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.15); }
+}
+
+/* Right Column Content */
+.sachin1-about-content-col {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.sachin1-about-content-col.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* Stats Grid - Clean Cards */
+.sachin1-about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.sachin1-about-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: var(--transition-smooth);
+}
+
+.sachin1-about-stat-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+.sachin1-about-stat-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  border-radius: 16px;
+  color: var(--accent);
+  border: 1px solid var(--border-color);
+}
+
+.sachin1-about-stat-content {
+  flex: 1;
+}
+
+.sachin1-about-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.sachin1-about-stat-label {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Bio Section */
+.sachin1-about-bio-section {
+  margin-bottom: 2.5rem;
+}
+
+.sachin1-about-section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+.sachin1-about-title-gradient {
+  background: none;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  color: var(--text-primary);
+}
+
+.sachin1-about-bio-text {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.sachin1-about-bio-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Section Subtitles */
+.sachin1-about-section-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.sachin1-about-section-subtitle svg {
+  color: var(--accent);
+  width: 20px;
+  height: 20px;
+}
+
+/* Highlights Section */
+.sachin1-about-highlights-section {
+  margin-bottom: 2.5rem;
+}
+
+.sachin1-about-highlights-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sachin1-about-highlight-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  transition: var(--transition-smooth);
+}
+
+.sachin1-about-highlight-card:hover {
+  transform: translateX(6px);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.sachin1-about-highlight-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  background: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.sachin1-about-highlight-card:hover .sachin1-about-highlight-dot {
+  transform: scale(1.5);
+  background: var(--gradient-end);
+}
+
+.sachin1-about-highlight-content {
+  flex: 1;
+}
+
+.sachin1-about-highlight-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.sachin1-about-highlight-category {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.75rem;
+  background: var(--bg-primary);
+  border-radius: 20px;
+  color: var(--text-tertiary);
+  text-transform: none;
+  border: 1px solid var(--border-color);
+  letter-spacing: 0.3px;
+}
+
+/* Skills Section - Refined Tags */
+.sachin1-about-skills-section {
+  margin-bottom: 2.5rem;
+}
+
+.sachin1-about-skills-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.75rem;
+}
+
+.sachin1-about-skill-tag{
+  background:var(--bg-primary);
+  border:1.5px solid var(--border-color);
+  padding:0.5rem 1.25rem;
+  border-radius:40px;
+  font-size:0.8rem;
+  font-weight:500;
+  color:var(--text-secondary);
+  transition:all .45s ease;
+  position:relative;
+  overflow:hidden;
+  cursor:default;
+  z-index:1;
+}
+
+/* liquid layer */
+.sachin1-about-skill-tag::before{
+  content:"";
+  position:absolute;
+  top:-20%;
+  left:-15%;
+  width:130%;
+  height:140%;
+  background:var(--accent);
+  border-radius:45% 55% 60% 40% / 45% 40% 60% 55%;
+  z-index:-1;
+  transition:transform .75s cubic-bezier(.22,.61,.36,1);
+  transform:translateX(-120%);
+}
+
+/* water enters left -> right */
+.sachin1-about-skill-tag:hover::before{
+  transform:translateX(0%);
+}
+
+.sachin1-about-skill-tag:hover{
+  border-color:var(--accent);
+  color:white;
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(68,64,60,.12);
+}
+
+.sachin1-about-skill-tag:active{
+  transform:translateY(0) scale(.97);
+}
+
+/* Dual Timeline Section */
+.sachin1-about-dual-timeline-section {
+  margin-bottom: 2.5rem;
+}
+
+.sachin1-about-timeline-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.sachin1-about-timeline-column-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.sachin1-about-timeline-column-title svg {
+  color: var(--accent);
+  width: 18px;
+  height: 18px;
+}
+
+.sachin1-about-vertical-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sachin1-about-timeline-node {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.sachin1-about-timeline-node:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 24px;
+  bottom: -24px;
+  width: 1.5px;
+  background: linear-gradient(to bottom, var(--border-color), transparent);
+}
+
+.sachin1-about-timeline-marker {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.sachin1-about-timeline-marker svg {
+  color: var(--accent);
+  transform: scale(0.6);
+}
+
+.sachin1-about-timeline-content-card {
+  flex: 1;
+  background: var(--bg-card);
+  padding: 1rem 1.25rem;
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+  transition: var(--transition-smooth);
+}
+
+.sachin1-about-timeline-content-card:hover {
+  transform: translateX(5px);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.sachin1-about-timeline-year {
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: 'SF Mono', monospace;
+  letter-spacing: 0.5px;
+}
+
+.sachin1-about-timeline-degree {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.sachin1-about-timeline-institution {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-bottom: 0.5rem;
+}
+
+.sachin1-about-timeline-details {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Action Buttons - Minimal */
+.sachin1-about-action-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Base Button */
+.sachin1-about-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.75rem 1.75rem;
+  border-radius:44px;
+  font-weight:500;
+  font-size:0.9rem;
+  cursor:pointer;
+  transition:all .45s ease;
+  border:none;
+  position:relative;
+  overflow:hidden;
+  background:transparent;
+  color:var(--text-primary);
+  z-index:1;
+}
+
+.sachin1-about-btn-icon{
+  width:18px;
+  height:18px;
+  transition:transform .35s ease;
+}
+
+/* =========================
+   PRIMARY BUTTON
+========================= */
+.sachin1-about-btn-primary{
+  background:var(--accent);
+  color:white;
+  letter-spacing:.3px;
+  border:1.5px solid var(--accent);
+}
+
+/* liquid layer */
+.sachin1-about-btn-primary::before{
+  content:"";
+  position:absolute;
+  top:-20%;
+  left:-15%;
+  width:130%;
+  height:140%;
+  background:var(--accent);
+  border-radius:45% 55% 60% 40% / 45% 40% 60% 55%;
+  z-index:-1;
+  transition:transform .75s cubic-bezier(.22,.61,.36,1);
+  transform:translateX(0%);
+}
+
+/* water exits left -> right */
+.sachin1-about-btn-primary:hover::before{
+  transform:translateX(120%);
+}
+
+.sachin1-about-btn-primary:hover{
+  background:transparent;
+  color:var(--accent);
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(68,64,60,.15);
+}
+
+.sachin1-about-btn-primary:hover .sachin1-about-btn-icon{
+  transform:translateX(4px);
+}
+
+/* =========================
+   SECONDARY BUTTON
+========================= */
+.sachin1-about-btn-secondary{
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  border:1.5px solid var(--border-color);
+}
+
+/* liquid enters left -> right */
+.sachin1-about-btn-secondary::before{
+  content:"";
+  position:absolute;
+  top:-20%;
+  left:-15%;
+  width:130%;
+  height:140%;
+  background:var(--accent);
+  border-radius:45% 55% 60% 40% / 45% 40% 60% 55%;
+  z-index:-1;
+  transition:transform .75s cubic-bezier(.22,.61,.36,1);
+  transform:translateX(-120%);
+}
+
+.sachin1-about-btn-secondary:hover::before{
+  transform:translateX(0%);
+}
+
+.sachin1-about-btn-secondary:hover{
+  color:white;
+  border-color:var(--accent);
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(68,64,60,.12);
+}
+
+.sachin1-about-btn-secondary:hover .sachin1-about-btn-icon{
+  transform:translateX(4px);
+}
+
+/* active */
+.sachin1-about-btn:active{
+  transform:translateY(0) scale(.98);
+}
+
+/* Hide elements on mobile */
+.sachin1-about-hide-mobile {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .sachin1-about-hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .sachin1-about-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .sachin1-about-image-col {
+    order: 1;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  
+  .sachin1-image-sticky-wrapper {
+    position: static;
+  }
+  
+  .sachin1-about-content-col {
+    order: 2;
+  }
+  
+  .sachin1-about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sachin1-about-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .sachin1-about-timeline-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .sachin1-about-stats-grid {
+    gap: 0.75rem;
+  }
+  
+  .sachin1-about-stat-card {
+    padding: 1rem;
+  }
+  
+  .sachin1-about-stat-value {
+    font-size: 1.25rem;
+  }
+  
+  .sachin1-about-section-title {
+    font-size: 1.75rem;
+  }
+  
+  .sachin1-about-profile-card {
+    padding: 1.25rem;
+  }
+  
+  /* Adjust container for mobile when profile is hidden */
+  .sachin1-about-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .sachin1-about-content-col {
+    order: 1;
+  }
+  
+  .sachin1-about-image-col {
+    max-width: none;
+  }
+  
+  /* Action buttons mobile adjustments */
+  .sachin1-about-action-buttons {
+    justify-content: center;
+  }
+  
+  .sachin1-about-btn-primary {
+    width: auto;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sachin1-about-section {
+    padding: 3rem 1rem;
+  }
+  
+  .sachin1-about-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sachin1-about-action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .sachin1-about-btn {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .sachin1-about-btn-primary {
+    width: 100%;
+  }
+  
+  .sachin1-about-skills-tags {
+    gap: 0.5rem;
+  }
+  
+  .sachin1-about-skill-tag {
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+  }
+  
+  .sachin1-about-highlight-card {
+    padding: 0.85rem 1rem;
+  }
+  
+  .sachin1-about-highlight-text {
+    font-size: 0.85rem;
+  }
+  
+  .sachin1-about-profile-name {
+    font-size: 1.3rem;
+  }
+}

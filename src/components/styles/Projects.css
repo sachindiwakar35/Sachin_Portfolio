@@ -1,0 +1,578 @@
+/* Project.css - Elegant Neutral Theme - Sachin5 Portfolio */
+:root {
+  /* Your Color Theme */
+  --bg-primary: #FFFFFF;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #78716C;
+  --accent: #44403C;
+  --border-color: #E7E5E4;
+  
+  /* Derived Colors */
+  --gradient-start: #44403C;
+  --gradient-end: #78716C;
+  --blob-opacity: 0.12;
+  --bg-card: #FAFAF9;
+  --bg-card-solid: #FAFAF9;
+  --border-light: #E7E5E4;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.06);
+  --transition-smooth: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.sachin5-projects-section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-section {
+  opacity: 0;
+}
+
+/* Refined Blob Effects */
+.sachin5-projects-bg-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+  animation: sachin5-projects-floatBlob 16s ease-in-out infinite;
+}
+
+.sachin5-projects-bg-blob-1 {
+  background: var(--gradient-start);
+  top: -200px;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.sachin5-projects-bg-blob-2 {
+  background: var(--gradient-end);
+  bottom: -200px;
+  right: -200px;
+  animation-delay: -6s;
+}
+
+@keyframes sachin5-projects-floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -20px) scale(1.05); }
+  66% { transform: translate(-10px, 15px) scale(0.98); }
+}
+
+.sachin5-projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Section Header - Clean Typography */
+.sachin5-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sachin5-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  margin-bottom: 0.75rem;
+}
+
+.sachin5-section-subtitle {
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Filter Tabs - Refined */
+.sachin5-filter-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.sachin5-filter-btn{
+  padding:0.5rem 1.5rem;
+  border-radius:40px;
+  font-size:0.85rem;
+  font-weight:500;
+  letter-spacing:0.3px;
+  background:transparent;
+  border:1.5px solid var(--border-color);
+  color:var(--text-secondary);
+  cursor:pointer;
+  transition:all .45s ease;
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+}
+
+/* liquid layer */
+.sachin5-filter-btn::before{
+  content:"";
+  position:absolute;
+  top:-20%;
+  left:-15%;
+  width:130%;
+  height:140%;
+  background:var(--accent);
+  border-radius:45% 55% 60% 40% / 45% 40% 60% 55%;
+  z-index:-1;
+  transition:transform .75s cubic-bezier(.22,.61,.36,1);
+  transform:translateX(-120%);
+}
+
+/* hover water enters */
+.sachin5-filter-btn:hover::before{
+  transform:translateX(0%);
+}
+
+.sachin5-filter-btn:hover{
+  border-color:var(--accent);
+  color:white;
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(68,64,60,.12);
+}
+
+/* active state */
+.sachin5-filter-btn.active{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:white;
+}
+
+.sachin5-filter-btn.active::before{
+  transform:translateX(0%);
+}
+
+.sachin5-filter-btn:active{
+  transform:translateY(0) scale(.97);
+}
+
+/* Featured Project - Elegant Card */
+.sachin5-featured-project {
+  margin-bottom: 4rem;
+}
+
+.sachin5-featured-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: var(--bg-card);
+  border-radius: 28px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.sachin5-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.sachin5-featured-image-wrapper {
+  overflow: hidden;
+  min-height: 300px;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+}
+
+.sachin5-featured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.sachin5-featured-card:hover .sachin5-featured-image {
+  transform: scale(1.02);
+}
+
+/* Image Slider */
+.sachin5-image-slider {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.sachin5-image-track {
+  display: flex;
+  transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  height: 100%;
+}
+
+.sachin5-slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.5s ease;
+}
+
+.sachin5-image-slider:hover .sachin5-slide-image {
+  transform: scale(1.02);
+}
+
+/* Featured Content */
+.sachin5-featured-content {
+  padding: 2rem 2rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sachin5-featured-badge {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  background: var(--bg-primary);
+  padding: 0.3rem 0.9rem;
+  border-radius: 24px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.sachin5-featured-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.sachin5-featured-description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.sachin5-featured-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.sachin5-featured-tech .sachin5-tech-tag {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.9rem;
+  border-radius: 24px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition-smooth);
+}
+
+.sachin5-featured-tech .sachin5-tech-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.sachin5-featured-actions {
+  display: flex;
+  gap: 1.25rem;
+}
+
+/* Projects Grid */
+.sachin5-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Project Card - Minimal & Elegant */
+.sachin5-project-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.sachin5-project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.sachin5-card-image-wrapper {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: var(--bg-primary);
+}
+
+.sachin5-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.sachin5-project-card:hover .sachin5-card-image {
+  transform: scale(1.03);
+}
+
+.sachin5-card-content {
+  padding: 1.5rem;
+}
+
+.sachin5-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.sachin5-card-description {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sachin5-card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.sachin5-tech-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.25rem 0.8rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  color: var(--text-secondary);
+  transition: var(--transition-smooth);
+}
+
+.sachin5-tech-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.sachin5-card-actions {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.sachin5-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  padding: 0.25rem 0;
+  cursor: pointer;
+}
+
+.sachin5-action-link:hover {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.sachin5-action-link.primary {
+  color: var(--accent);
+}
+
+.sachin5-action-link.primary:hover {
+  color: #3A3632;
+  gap: 0.6rem;
+}
+
+.sachin5-action-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .sachin5-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .sachin5-featured-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .sachin5-featured-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+  
+  .sachin5-featured-image-wrapper {
+    max-height: 280px;
+  }
+  
+  .sachin5-section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sachin5-projects-section {
+    padding: 4rem 1.25rem;
+  }
+  
+  .sachin5-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .sachin5-filter-tabs {
+    gap: 0.5rem;
+  }
+  
+  .sachin5-filter-btn {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.75rem;
+  }
+  
+  .sachin5-featured-title {
+    font-size: 1.35rem;
+  }
+  
+  .sachin5-featured-description {
+    font-size: 0.85rem;
+  }
+  
+  .sachin5-card-content {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sachin5-projects-section {
+    padding: 3rem 1rem;
+  }
+  
+  .sachin5-section-title {
+    font-size: 1.75rem;
+  }
+  
+  .sachin5-section-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .sachin5-filter-btn {
+    padding: 0.35rem 1rem;
+    font-size: 0.7rem;
+  }
+  
+  .sachin5-featured-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .sachin5-card-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .sachin5-featured-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Disabled state */
+.sachin5-action-link.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Tooltip - Refined */
+.sachin5-tooltip {
+  position: relative;
+}
+
+.sachin5-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease;
+  z-index: 9999;
+  letter-spacing: 0.3px;
+}
+
+.sachin5-tooltip:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* Animation for cards appearing */
+@keyframes sachin5-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sachin5-project-card {
+  animation: sachin5-fadeInUp 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+  opacity: 0;
+}
+
+.sachin5-project-card:nth-child(1) { animation-delay: 0.05s; }
+.sachin5-project-card:nth-child(2) { animation-delay: 0.1s; }
+.sachin5-project-card:nth-child(3) { animation-delay: 0.15s; }
+.sachin5-project-card:nth-child(4) { animation-delay: 0.2s; }
+.sachin5-project-card:nth-child(5) { animation-delay: 0.25s; }
+.sachin5-project-card:nth-child(6) { animation-delay: 0.3s; }

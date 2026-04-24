@@ -1,0 +1,809 @@
+/* hero.css - Elegant Neutral Theme - Sachin3 Portfolio */
+:root {
+  /* Your Color Theme */
+  --bg-primary: #FFFFFF;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #78716C;
+  --accent: #44403C;
+  --border-color: #E7E5E4;
+  
+  /* Derived / Enhanced Colors */
+  --gradient-start: #44403C;
+  --gradient-end: #78716C;
+  --blob-opacity: 0.4;
+  --bg-card: #FAFAF9;
+  --bg-gitlink: #FAFAF9;
+  --code-bg: #FAFAF9;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --transition-smooth: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.sachin3-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-primary);
+  padding: 80px 40px 40px;
+}
+
+.sachin3-heroicon{
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Enhanced Blur Effects - More Subtle & Elegant */
+.sachin3-hero-bg-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+  animation: sachin3-hero-floatBlob 16s ease-in-out infinite;
+}
+
+.sachin3-hero-bg-blob-1 {
+  background: var(--gradient-start);
+  top: -200px;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.sachin3-hero-bg-blob-2 {
+  background: var(--gradient-end);
+  bottom: -200px;
+  right: -200px;
+  animation-delay: -6s;
+}
+
+/* Smoother Blob Animation */
+@keyframes sachin3-hero-floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -20px) scale(1.05); }
+  66% { transform: translate(-10px, 15px) scale(0.98); }
+}
+
+.sachin3-hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Smoother Entrance Animation */
+.sachin3-hero-content {
+  animation: sachin3-fadeInUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+}
+
+@keyframes sachin3-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Refined Badge - More Elegant */
+.sachin3-hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--bg-card);
+  padding:6px 18px;
+  border-radius:40px;
+  margin-bottom:28px;
+  border:1px solid var(--border-color);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.3px;
+  color:var(--text-secondary);
+  backdrop-filter:none;
+  transition:all .45s ease;
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+}
+
+/* liquid layer */
+.sachin3-hero-badge::before{
+  content:"";
+  position:absolute;
+  top:-20%;
+  left:-15%;
+  width:130%;
+  height:140%;
+  background:var(--accent);
+  border-radius:45% 55% 60% 40% / 45% 40% 60% 55%;
+  z-index:-1;
+  transition:transform .75s cubic-bezier(.22,.61,.36,1);
+  transform:translateX(-120%);
+}
+
+/* water enters left -> right */
+.sachin3-hero-badge:hover::before{
+  transform:translateX(0%);
+}
+
+.sachin3-hero-badge:hover{
+  border-color:var(--accent);
+  color:white;
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-sm);
+}
+
+.sachin3-hero-badge:active{
+  transform:translateY(0) scale(.100);
+}
+
+/* Typography Refinements */
+.sachin3-hero-title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+}
+
+/* Gradient text only for name highlight */
+.sachin3-gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+/* Underline animation on hover - More refined */
+.sachin3-gradient-text::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.sachin3-hero-title:hover .sachin3-gradient-text::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Role with subtle accent */
+.sachin3-hero-role {
+  font-size: 20px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.5;
+  font-weight: 450;
+  border-left: 3px solid var(--accent);
+  padding-left: 16px;
+}
+
+/* Description - Clean & Readable */
+.sachin3-hero-description {
+  font-size: 16px;
+  color: var(--text-tertiary);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+
+/* Button Container */
+.sachin3-hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+}
+
+/* Primary Button - Minimal & Elegant */
+.sachin3-btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 32px;
+  border-radius:40px;
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:0.3px;
+  cursor:pointer;
+  border:1.5px solid var(--accent);
+  position:relative;
+  overflow:hidden;
+  background:var(--accent);
+  color:white;
+  transition:all .45s ease;
+  z-index:1;
+}
+
+/* liquid layer */
+.sachin3-btn-primary::before{
+  content:"";
+  position:absolute;
+  top:-20%;
+  left:-15%;
+  width:130%;
+  height:140%;
+  background:var(--accent);
+  border-radius:45% 55% 60% 40% / 45% 40% 60% 55%;
+  z-index:-1;
+
+  /* SAME slow speed as secondary */
+  transition:transform .75s cubic-bezier(.22,.61,.36,1);
+
+  transform:translateX(0%);
+}
+
+/* water slowly moves out */
+.sachin3-btn-primary:hover::before{
+  transform:translateX(120%);
+}
+
+/* hover state */
+.sachin3-btn-primary:hover{
+  background:transparent;
+  color:var(--accent);
+  box-shadow:0 10px 22px rgba(0,0,0,.12);
+  transform:translateY(-2px);
+}
+
+/* arrow motion */
+.sachin3-btn-primary svg{
+  transition:transform .75s ease;
+}
+
+.sachin3-btn-primary:hover svg{
+  transform:translateX(4px);
+}
+
+.sachin3-btn-primary:active{
+  transform:translateY(0);
+}
+
+/* Secondary Button */
+.sachin3-btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 32px;
+  border-radius:40px;
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:0.3px;
+  cursor:pointer;
+  border:1.5px solid var(--border-color);
+  position:relative;
+  overflow:hidden;
+  background:transparent;
+  color:var(--text-primary);
+  transition:all .45s ease;
+  z-index:1;
+}
+
+/* liquid layer */
+.sachin3-btn-secondary::before{
+  content:"";
+  position:absolute;
+  top:-20%;
+  left:-15%;
+  width:130%;
+  height:140%;
+  background:var(--accent);
+  border-radius:45% 55% 60% 40% / 45% 40% 60% 55%;
+  z-index:-1;
+  transition:transform .75s cubic-bezier(.22,.61,.36,1);
+  transform:translateX(-120%);
+}
+
+/* water flows left to right */
+.sachin3-btn-secondary:hover::before{
+  transform:translateX(0%);
+}
+
+/* hover state */
+.sachin3-btn-secondary:hover{
+  color:white;
+  border-color:var(--accent);
+  box-shadow:0 10px 22px rgba(0,0,0,.12);
+  transform:translateY(-2px);
+}
+
+/* arrow motion */
+.sachin3-btn-secondary svg{
+  transition:transform .35s ease;
+}
+
+.sachin3-btn-secondary:hover svg{
+  transform:translateX(4px);
+}
+
+.sachin3-btn-secondary:active{
+  transform:translateY(0);
+}
+
+/* Social Links - Refined */
+.sachin3-hero-social {
+  display: flex;
+  gap: 12px;
+}
+
+.sachin3-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  transition: var(--transition-smooth);
+  border: 1px solid var(--border-color);
+}
+
+.sachin3-social-link:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+/* Visual Side Animation */
+.sachin3-hero-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  animation: sachin3-fadeInRight 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+}
+
+@keyframes sachin3-fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Photo Container - Ring Effect */
+.sachin3-hero-photo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Subtle glow instead of heavy blur */
+.sachin3-hero-photo-glow {
+  position: absolute;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  background: radial-gradient(circle, rgba(68, 64, 60, 0.08), transparent 70%);
+  border-radius: 50%;
+  animation: sachin3-pulse 3s ease-in-out infinite;
+}
+
+@keyframes sachin3-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
+
+/* Photo styling - Elegant border */
+.sachin3-hero-photo {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-smooth);
+  position: relative;
+  z-index: 1;
+  outline: 1px solid var(--border-color);
+  outline-offset: 2px;
+}
+
+.sachin3-hero-photo:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+  outline-color: var(--accent);
+}
+
+/* Code Card - Minimal & Clean */
+.sachin3-hero-code-card {
+  background: var(--code-bg);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.sachin3-hero-code-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+.sachin3-code-header {
+  background: transparent;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sachin3-code-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.sachin3-code-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: opacity 0.2s ease;
+}
+
+.sachin3-code-dot.sachin3-red { background: #EC7063; }
+.sachin3-code-dot.sachin3-yellow { background: #F7DC6F; }
+.sachin3-code-dot.sachin3-green { background: #52BE80; }
+
+.sachin3-code-title {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-family: 'SF Mono', 'Courier New', monospace;
+  letter-spacing: 0.3px;
+}
+
+.sachin3-code-content {
+  padding: 24px;
+  font-family: 'SF Mono', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.sachin3-code-line {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.sachin3-code-indent-1 {
+  padding-left: 20px;
+}
+
+/* Code syntax highlighting - Muted & Elegant */
+.sachin3-code-keyword { color: #8B5CF6; font-weight: 500; }
+.sachin3-code-variable { color: #059669; }
+.sachin3-code-operator { color: #78716C; }
+.sachin3-code-property { color: #0EA5E9; }
+.sachin3-code-string { color: #B45309; }
+.sachin3-code-number { color: #8B5CF6; }
+.sachin3-code-boolean { color: #D97706; }
+.sachin3-code-semicolon { color: #78716C; }
+
+/* Scroll Indicator - Minimal */
+.sachin3-hero-scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  animation: sachin3-bounce 2s ease-in-out infinite;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.sachin3-hero-scroll-indicator:hover {
+  opacity: 1;
+}
+
+@keyframes sachin3-bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+}
+
+.sachin3-scroll-wheel {
+  width: 2px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: sachin3-scroll 2s ease-in-out infinite;
+}
+
+@keyframes sachin3-scroll {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(18px);
+  }
+}
+
+.sachin3-scroll-arrow {
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+
+/* Photo Placeholder */
+.sachin3-hero-photo-placeholder {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(68, 64, 60, 0.08), rgba(120, 115, 108, 0.08));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 2px dashed rgba(68, 64, 60, 0.3);
+  color: var(--text-secondary);
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.sachin3-hero-photo-placeholder:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sachin3-hero-container {
+    gap: 50px;
+  }
+  .sachin3-hero-title {
+    font-size: 52px;
+  }
+  .sachin3-hero-photo,
+  .sachin3-hero-photo-placeholder {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sachin3-hero {
+    padding: 100px 24px 60px;
+  }
+  .sachin3-hero-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .sachin3-hero-title {
+    font-size: 44px;
+  }
+  .sachin3-hero-role {
+    font-size: 18px;
+  }
+  .sachin3-hero-description {
+    font-size: 15px;
+  }
+  .sachin3-hero-buttons {
+    justify-content: center;
+  }
+  .sachin3-hero-social {
+    justify-content: center;
+  }
+  .sachin3-hero-visual {
+    order: -1;
+  }
+  .sachin3-hero-photo,
+  .sachin3-hero-photo-placeholder {
+    width: 200px;
+    height: 200px;
+  }
+  .sachin3-hero-code-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sachin3-hero-title {
+    font-size: 32px;
+  }
+  .sachin3-hero-role {
+    font-size: 16px;
+  }
+  .sachin3-hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  } 
+  .sachin3-btn-primary,
+  .sachin3-btn-secondary {
+    justify-content: center;
+    width: 100%;
+  }
+  .sachin3-hero-photo,
+  .sachin3-hero-photo-placeholder {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+
+
+
+
+.sachin3-hero-photo-container{
+  perspective: 1200px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.sachin3-flip-coin{
+  width:280px;
+  height:280px;
+  position:relative;
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(.4,.2,.2,1);
+}
+
+.sachin3-hero-photo-container:hover .sachin3-flip-coin{
+  transform: rotateY(180deg);
+}
+
+/* faces */
+.sachin3-coin-face{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  backface-visibility:hidden;
+  top:0;
+  left:0;
+}
+
+.sachin3-front-face{
+  transform: rotateY(0deg);
+}
+
+.sachin3-back-face{
+  transform: rotateY(180deg);
+}
+
+/* photo */
+.sachin3-hero-photo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  border:3px solid white;
+  box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
+
+
+/* Mobile Responsive + Touch Animation Fix */
+@media (max-width: 768px){
+
+  /* Better spacing */
+  .sachin3-hero{
+    padding:95px 18px 50px;
+  }
+
+  .sachin3-hero-container{
+    gap:36px;
+  }
+
+  /* Full width buttons */
+  .sachin3-btn-primary,
+  .sachin3-btn-secondary{
+    width:100%;
+    justify-content:center;
+    min-height:52px;
+  }
+
+  /* Tap animation instead of hover */
+  .sachin3-btn-primary:active{
+    transform:scale(.97);
+  }
+
+  .sachin3-btn-secondary:active{
+    transform:scale(.97);
+  }
+
+  /* Trigger liquid effect on touch */
+  .sachin3-btn-primary:active::before{
+    transform:translateX(120%);
+  }
+
+  .sachin3-btn-secondary:active::before{
+    transform:translateX(0%);
+  }
+
+  /* Social tap effect */
+  .sachin3-social-link:active{
+    transform:scale(.92);
+  }
+
+  /* Photo auto flip on mobile tap */
+  .sachin3-hero-photo-container:active .sachin3-flip-coin{
+    transform:rotateY(180deg);
+  }
+
+  /* Code card width */
+  .sachin3-hero-code-card{
+    width:100%;
+    overflow-x:auto;
+  }
+}
+
+/* Extra Small Phones */
+@media (max-width: 480px){
+
+  .sachin3-hero-title{
+    font-size:30px;
+    line-height:1.2;
+  }
+
+  .sachin3-hero-role{
+    font-size:15px;
+  }
+
+  .sachin3-hero-description{
+    font-size:14px;
+  }
+
+  .sachin3-flip-coin,
+  .sachin3-hero-photo,
+  .sachin3-hero-photo-placeholder{
+    width:170px;
+    height:170px;
+  }
+
+  .sachin3-code-content{
+    font-size:12px;
+    padding:18px;
+  }
+}
