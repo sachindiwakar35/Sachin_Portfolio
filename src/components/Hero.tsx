@@ -1,4 +1,6 @@
-import { ChevronRight, Mail, ArrowDown, Code, Sparkles } from "lucide-react";
+import { ChevronRight, Mail, ArrowDown, 
+  // Code,
+   Sparkles } from "lucide-react";
 import "./styles/Hero.css";
 import { useEffect } from "react";
 // import { playClickSound } from "../utils/sound";
