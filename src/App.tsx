@@ -4,12 +4,14 @@ import Navbar from "./components/Navbar";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import { driver } from "driver.js";
-import "driver.js/dist/driver.css";
-import { playClickSound } from "./utils/sound";
 import "./index.css";
 import profileImg from "./assets/profile.jpg";
 import avatar from "./assets/avatar.png";
+
+/*
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
+import { playClickSound } from "./utils/sound";
 
 const startTour = () => {
   const driverObj = driver({
@@ -69,28 +71,35 @@ const startTour = () => {
       },
     },
   ]);
+
   driverObj.drive();
 };
+*/
 
 export default function App() {
-
   const [darkMode, setDarkMode] = useState<boolean>(() => {
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = localStorage.getItem("theme");
+
     if (savedTheme) {
-      return savedTheme === 'dark';
+      return savedTheme === "dark";
     }
-    return window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    return window.matchMedia("(prefers-color-scheme: light)").matches;
   });
 
+  /*
   useEffect(() => {
     const seen = localStorage.getItem("seenTour");
+
     if (!seen) {
       setTimeout(() => {
         startTour();
       }, 1000);
+
       localStorage.setItem("seenTour", "true");
     }
   }, []);
+  */
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
@@ -98,23 +107,25 @@ export default function App() {
 
   useEffect(() => {
     if (darkMode) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
     }
   }, [darkMode]);
 
   return (
     <div>
       <Navbar toggleTheme={toggleTheme} darkMode={darkMode} />
-      <Hero 
-        name="Sachin Diwakar" 
-        role="Building scalable web apps & exploring full-stack development" 
+
+      <Hero
+        name="Sachin Diwakar"
+        role="Building scalable web apps & exploring full-stack development"
         imageUrl={profileImg}
-        avatar = {avatar}
+        avatar={avatar}
       />
+
       <About imageUrl={profileImg} />
       <Projects />
       <Contact />
